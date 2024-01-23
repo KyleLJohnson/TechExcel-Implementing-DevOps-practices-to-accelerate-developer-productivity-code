@@ -1,5 +1,14 @@
+name: first-workflow
+
+on:
+  workflow_dispatch:
+  
 jobs:
   job1:
     name: Job1
+    runs-on: ubuntu-latest
     steps:
-      run: echo "Step 1 Completed"
+      - name: step1
+        run: echo "Step 1 Complete!"
+      - name: step2
+        run: echo "Step 2 Complete!"
