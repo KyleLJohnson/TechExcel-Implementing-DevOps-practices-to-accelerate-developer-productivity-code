@@ -2,7 +2,10 @@
   # We only want to run this script manually.
   on:
     workflow_dispatch
-
+    
+  permissions:
+        id-token: write # This is required for requesting the JWT
+        contents: read  # This is required for actions/checkout
   # Environment variables are defined in an "env" section.
   # We set the target environment to dev.
   # Open the deploy-advanced.yml file to see how we can accept user input
@@ -28,7 +31,7 @@
       # makes it available to the GitHub hosted runner. It will usually be the
       # first task for any workflow
       - uses: actions/checkout@main
-
+      
         # Log into Azure using a federated credential. We have already set up the
         # federation process in a prior step, so we need to pass in the following:
         # Client ID = 781efb47-e96d-466b-a44d-4d63b364abe8
